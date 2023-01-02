@@ -2,8 +2,14 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: [
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'standard',
+    'plugin:prettier/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -12,38 +18,41 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', 'jsx-a11y', '@typescript-eslint'],
   rules: {
-    'react/no-unused-prop-types': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        printWidth: 80,
+        tabWidth: 2,
+        singleQuote: true,
+        trailingComma: 'all',
+        arrowParens: 'always',
+        semi: true,
+        endOfLine: 'auto',
+      },
+    ],
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-one-expression-per-line': 'off',
-    'react/function-component-definition': 'off',
-    'react/require-default-props': 'off',
-    'react-hooks/rules-of-hooks': 'off',
-    'react-hooks/exhaustive-deps': 'off',
-    'react/jsx-filename-extension': [
-      1,
+    'react/prop-types': 'off',
+    'jsx-a11y/alt-text': [
+      'warn',
       {
-        extensions: ['.tsx'],
+        elements: ['img'],
+        img: ['Image'],
       },
     ],
-    'import/prefer-default-export': 'off',
-    'import/no-unresolved': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'import/extensions': [
-      'off',
-      {
-        ts: 'never',
-        tsx: 'never',
-        css: 'never',
-      },
-    ],
+    'jsx-a11y/aria-props': 'warn',
+    'jsx-a11y/aria-proptypes': 'warn',
+    'jsx-a11y/aria-unsupported-elements': 'warn',
+    'jsx-a11y/role-has-required-aria-props': 'warn',
+    'jsx-a11y/role-supports-aria-props': 'warn',
   },
   settings: {
-    'import/export': {
-      typescript: {},
+    react: {
+      version: 'detect',
+    },
+    'import/parsers': {
+      [require.resolve('@typescript-eslint/parser')]: ['.ts', '.tsx', '.d.ts'],
     },
   },
 };
