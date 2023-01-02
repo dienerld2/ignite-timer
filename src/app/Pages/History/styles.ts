@@ -23,13 +23,12 @@ export const HistoryList = styled.div`
     border-collapse: collapse;
     min-width: 600px;
 
-
     th {
-      background: ${(props) => props.theme['gray-600']};
+      background-color: ${(props) => props.theme['gray-600']};
       padding: 1rem;
       text-align: left;
       color: ${(props) => props.theme['gray-100']};
-      font-size: 0.875;
+      font-size: 0.875rem;
       line-height: 1.6;
 
       &:first-child {
@@ -40,16 +39,15 @@ export const HistoryList = styled.div`
       &:last-child {
         border-top-right-radius: 8px;
         padding-right: 1.5rem;
-
       }
     }
 
     td {
-      background: ${(props) => props.theme['gray-700']};
-      border-top: ${(props) => props.theme['gray-800']};
+      background-color: ${(props) => props.theme['gray-700']};
+      border-top: 4px solid ${(props) => props.theme['gray-800']};
       padding: 1rem;
-      line-height: 1.6;
       font-size: 0.875rem;
+      line-height: 1.6;
 
       &:first-child {
         width: 50%;
@@ -70,7 +68,7 @@ const STATUS_COLORS = {
 } as const;
 
 interface StatusProps {
-  statusColor: keyof typeof STATUS_COLORS
+  statusColor: keyof typeof STATUS_COLORS;
 }
 
 export const Status = styled.span<StatusProps>`
@@ -82,8 +80,7 @@ export const Status = styled.span<StatusProps>`
     content: '';
     width: 0.5rem;
     height: 0.5rem;
-    border-radius: 50%;
-
+    border-radius: 9999px;
     background: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
   }
 `;

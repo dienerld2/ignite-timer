@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 
@@ -21,12 +21,12 @@ export const HeaderContainer = styled.header`
       border-top: 3px solid transparent;
       border-bottom: 3px solid transparent;
 
-      &:hover{
+      &:hover {
         border-bottom: 3px solid ${(props) => props.theme['green-500']};
       }
 
       &.active {
-        color:  ${(props) => props.theme['green-500']};
+        color: ${(props) => props.theme['green-500']};
       }
     }
   }
